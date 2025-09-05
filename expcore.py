@@ -335,7 +335,7 @@ class DummyInstance(InputGraph):
                 param_strings.append(param)
 
         for_each_argument(self.params, parse_argument)
-        name = self.name_ + "_" + "_".join(param_strings)
+        name = self.name_ #+ "_" + "_".join(param_strings)
         return slugify.slugify(name)
 
 class ExperimentSuite:
@@ -404,6 +404,8 @@ class ExperimentSuite:
 def load_suite_from_yaml(path):
     with open(path, "r") as file:
         data = yaml.safe_load(file)
+    print(path)
+    print(data)
     configs = []
     if "config" not in data:
         configs = [dict()]
